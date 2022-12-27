@@ -47,7 +47,7 @@ const listData = [
 let contenItem=document.getElementsByClassName('contentItem')
 
 let html=''
-for(let i=0; i<listData.length-20; i++){
+for(let i=0; i<listData.length; i++){
     html+=` <div style="display: " class="item">
             <div class="img">
                 <img src="${listData[i].img}" height="320" width="320"/>
