@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<body>
+
+<!--authen form-->
+<div class="auth-form">
+    <div class="auth-form_container">
+
+        <div class="auth-form_header">
+            <h3 class="auth-form_heading">Đăng ký</h3>
+            <span onclick="dangnhap()" style="cursor: pointer" class="auth-form_switch-btn">Đăng nhập</span>
+        </div>
+
+        <div class="auth-form_form">
+            <div class="auth-form_group">
+                <input type="text" class="auth-form_input" id="email" placeholder="Email của bạn">
+                <span>  Email không chính xác</span>
+            </div>
+            <div class="auth-form_group">
+                <input type="password" class="auth-form_input" id="password" placeholder="Mật khẩu của bạn">
+                <span id ="passwordMSG">Mật khẩu phải lớn hơn 8 ký tự</span>
+            </div>
+            <div class="auth-form_group">
+                <input type="password" class="auth-form_input" id="comfirmPassword" placeholder="Nhập lại mật khẩu của bạn">
+                <span id="Repassword">Mật khẩu nhập lại không chính xác</span>
+            </div>
+        </div>
+        <div class="auth-form_aside">
+            <p class="auth-form_policy-text">Bằng việc đăng ký bạn đã đồng ý với Shopii về <a href="" class="auth-form_policy-link">Điều
+                khoản dịch vụ</a> &
+                <a href="" class="auth-form_policy-link">Chính sách bảo mật</a></p>
+        </div>
+
+        <div class="auth-form_control">
+            <button onclick="trangchu()" class="btn">TRỞ LẠI</button>
+            <button class="btn--primary" id="btnRegister" >ĐĂNG KÝ</button>
+        </div>
+    </div>
+
+
+    <div class="auth-form_sosials">
+        <a href="" class="btn btn--with-icon">
+            <i class="fa-brands fa-square-facebook"></i>Kết nối với facebook
+        </a>
+        <a href="" class="btn btn--with-icon">
+            <i class="fa-brands fa-square-google-plus"></i>Kết nối với Google
+        </a>
+    </div>
+</div>
+
+</body>
+
+<script src="./Register.js"></script>
+
+
+</html>
