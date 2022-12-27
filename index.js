@@ -47,8 +47,8 @@ const listData = [
 let contenItem=document.getElementsByClassName('contentItem')
 
 let html=''
-for(let i=0; i<listData.length; i++){
-    html+=` <div class="item">
+for(let i=0; i<listData.length-20; i++){
+    html+=` <div style="display: " class="item">
             <div class="img">
                 <img src="${listData[i].img}" height="320" width="320"/>
             </div>
@@ -92,6 +92,28 @@ logOut.addEventListener('click',()=>{
     }
 
 })
+
+function timKiem(){
+
+    var x = document.getElementById("timkiem").value;
+    if(x == ""){
+        document.querySelector(".gioithieu").style.display = ""
+
+    }else {
+        document.querySelector(".gioithieu").style.display = "none"
+    }
+    let list = document.querySelectorAll(".item")
+    list.forEach((item)=>{
+        if(item.innerText.trim().toLowerCase().includes(x.trim().toLowerCase())){
+            item.style.display = "block"
+
+        }else {
+            item.style.display = "none"
+        }
+
+    })
+}
+
 
 
 
