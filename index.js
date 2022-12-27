@@ -97,7 +97,7 @@ function timKiem(){
 
     var x = document.getElementById("timkiem").value;
     if(x == ""){
-        document.querySelector(".gioithieu").style.display = ""
+        document.querySelector(".gioithieu").style.display = "flex"
 
     }else {
         document.querySelector(".gioithieu").style.display = "none"
