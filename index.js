@@ -1,3 +1,6 @@
+
+
+
 const listData = [
     {price: 30000, img: "./imgItem/1.jpg", name: 'Quần nỉ xinh xinh'},
     {price:  40000, img: "./imgItem/2.jpg", name: 'Quần thun ống rộng'},
@@ -43,6 +46,7 @@ const listData = [
     {price:  64000, img: "./imgItem/8.jpg", name: 'Thảm thần kỳ'},
 
 ]
+localStorage.setItem("product" , JSON.stringify(listData))
 
 let contenItem=document.getElementsByClassName('contentItem')
 
@@ -55,7 +59,7 @@ for(let i=0; i<listData.length; i++){
             <span>${listData[i].name}</span>
             <div class="price">
                 <span>${listData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")} VND</span>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i style="cursor: pointer" class="fa-solid fa-cart-shopping" id="giohang" onclick="giohang('${listData[i].img}','${listData[i].name}','${listData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}')"></i>
             </div>
         </div>`
 }
@@ -112,6 +116,27 @@ function timKiem(){
         }
 
     })
+}
+function products() {
+    window.location.href = "Productlist.html"
+
+}
+function giohang(img , name , price ) {
+    let doituong  = [{name: name , img:img , price:price}]
+let arr = localStorage.getItem(`${localStorage.getItem("current")}`)
+    if (arr == 0){
+        localStorage.setItem(`${localStorage.getItem("current")}` , JSON.stringify(doituong) )
+    }else {
+        let doituong2  = {name: name , img:img , price:price}
+
+      let value =  localStorage.getItem(`${localStorage.getItem("current")}`)
+        let data = JSON.parse(value)
+        data.unshift(doituong2)
+        localStorage.setItem(`${localStorage.getItem("current")}` , JSON.stringify(data) )
+
+    }
+    ShowSuccessToast()
+
 }
 
 

@@ -39,25 +39,34 @@ login.addEventListener('click', () => {
         email: email.value,
         password: password.value
     }]
-    console.log(datalogin)
-    if (password.value.length > 6 && email.value.match(/^\S+@\S+\.\S+$/)) {
+
+
         let value= localStorage.getItem("dataUser")
         let data = JSON.parse(value)
-
+        console.log(1)
         for (let i = 0; i < data.length; i++) {
+            if (data[i].email != datalogin[0].email && data[i].password != datalogin[0].password){
+                document.getElementById("emailerror").style.visibility = 'visible'
+                emailerror.innerText = 'Email chưa được đăng ký'
+                document.getElementById("passworderror").style.visibility = 'visible'
+                passworderror.innerText = 'Password không đúng'
+            }
+            if (data[i].email != datalogin[0].email) {
+                document.getElementById("emailerror").style.visibility = 'visible'
+                emailerror.innerText = 'Email chưa được đăng ký'
+
+            }
+            if (data[i].password != datalogin[0].password) {
+     document.getElementById("passworderror").style.visibility = 'visible'
+                passworderror.innerText = 'Password không đúng'
+            }
             if (data[i].email == datalogin[0].email && data[i].password == datalogin[0].password) {
                 localStorage.setItem("boolLogin",JSON.stringify(true))
                 localStorage.setItem("accountLogin",JSON.stringify(datalogin))
+                localStorage.setItem("current" , `${datalogin[0].email}` )
                 window.location.href = "Index.html"
-            } else if (data[i].email != datalogin[0].email) {
-                email.style.visibility = 'visible'
-                emailerror.innerText = 'Email chưa được đăng ký'
-
-            } else if (data[i].password != datalogin[0].password) {
-                passworderror.style.visibility = 'visible'
-                passworderror.innerText = 'Password không đúng'
             }
         }
-    }
+
 
 })

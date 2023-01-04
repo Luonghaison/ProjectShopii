@@ -59,6 +59,9 @@ btnRegister.addEventListener("click",()=>{
 
        if(!data){
            // day du lieu len localstorage voi key la "dataUser và value la dataUser
+           if (localStorage.getItem(`${dataUser[dataUser.length-1].email}`) == null){
+               localStorage.setItem(`${dataUser[dataUser.length-1].email}`, 0)
+           }
            localStorage.setItem("dataUser",JSON.stringify(dataUser))
            window.location.href = "login.html"
        } else {
@@ -80,6 +83,9 @@ btnRegister.addEventListener("click",()=>{
               let newArr =  userData.concat(dataUser)
                console.log(newArr)
                localStorage.setItem("dataUser",JSON.stringify(newArr))
+               if (localStorage.getItem(`${dataUser[dataUser.length-1].email}`) == null){
+                   localStorage.setItem(`${dataUser[dataUser.length-1].email}`, 0)
+               }
                 window.location.href = "login.html"
            }
 
